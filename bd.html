@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Efecto Radial 24</title>
+		<link rel="stylesheet" href="style.css" />
 		<style>
 			* {
 				margin: 0;
@@ -11,23 +12,70 @@
 				box-sizing: border-box;
 			}
 
-			html,
 			body {
-				width: 100%;
-				height: 100%;
-				overflow: hidden; /* evita cualquier scroll */
+				background-color: #1a1a1a; /* Gris oscuro de fondo */
+				overflow: hidden; /* Evita el scroll */
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-family:
+					"Georgia", serif; /* Una fuente con serifas similar a la imagen */
 			}
 
-			img {
-				display: block;
+			#canvas {
+				position: absolute;
+				top: 0;
+				left: 0;
 				width: 100%;
 				height: 100%;
-				object-fit: cover; /* cubre toda la pantalla sin deformarse */
-				object-position: center;
+				z-index: 1; /* Detrás del texto */
+			}
+
+			/* El número 24 */
+			.center-number {
+				position: relative;
+				z-index: 2; /* Delante de las partículas */
+				font-size: 15rem; /* Tamaño gigante */
+				color: #ffffff;
+				font-style: italic;
+				font-weight: bold;
+
+				/* Efecto Glow (brillo) moderno */
+				text-shadow:
+					0 0 10px rgba(255, 255, 255, 0.8),
+					0 0 30px rgba(255, 255, 255, 0.6),
+					0 0 60px rgba(255, 255, 255, 0.4),
+					0 0 100px rgba(255, 255, 255, 0.2);
+
+				/* Animación para que el brillo respire */
+				animation: pulseGlow 3s ease-in-out infinite alternate;
+			}
+
+			@keyframes pulseGlow {
+				0% {
+					text-shadow:
+						0 0 10px rgba(255, 255, 255, 0.6),
+						0 0 30px rgba(255, 255, 255, 0.4),
+						0 0 60px rgba(255, 255, 255, 0.2);
+				}
+				100% {
+					text-shadow:
+						0 0 20px rgba(255, 255, 255, 1),
+						0 0 40px rgba(255, 255, 255, 0.8),
+						0 0 80px rgba(255, 255, 255, 0.6),
+						0 0 120px rgba(255, 255, 255, 0.4);
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<img src="bdimg.png" alt="" />
+		<!-- El canvas para las partículas -->
+		<canvas id="canvas"></canvas>
+
+		<!-- El número central con el brillo -->
+		<div class="center-number">24</div>
+
+		<script src="index.js"></script>
 	</body>
 </html>

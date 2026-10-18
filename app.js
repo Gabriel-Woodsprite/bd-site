@@ -2,7 +2,7 @@ const form = document.querySelector("form");
 const input = document.getElementById("pass");
 
 // Contraseña correcta
-const CORRECT_PASSWORD = "pass123?";
+const CORRECT_PASSWORD = "18102026";
 
 // Mensaje de ayuda dinámico
 const hint = document.createElement("p");
